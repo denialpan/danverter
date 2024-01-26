@@ -1,3 +1,3 @@
 # danverter
 
-Simple media convert for personal use.
+Simple media converter for personal use.
