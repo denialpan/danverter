@@ -5,12 +5,12 @@ using System.Threading;
 // singleton implementation
 public class FileExplorer {
 
-    private static FileExplorer instance;
+    private static FileExplorer instance = new FileExplorer();
     private static readonly object lock_object = new object();
-    private List<string> selected_files = new List<string>();
+    private Dictionary<string, long> selected_files = new Dictionary<string, long>();
 
     private FileExplorer() {
-        this.selected_files = new List<string>();
+        this.selected_files = new Dictionary<string, long>();
     }
 
     public static FileExplorer Instance {
@@ -37,13 +37,21 @@ public class FileExplorer {
 
         if (valid_files == DialogResult.OK) {
 
-            this.selected_files.AddRange(file_explorer.FileNames); 
+            foreach(string file in file_explorer.FileNames)
+            {
+                FileInfo fileInfo = new FileInfo(file);
+
+                if (!selected_files.ContainsKey(fileInfo.Name)) { 
+                    this.selected_files.Add(Path.GetFileName(file), fileInfo.Length); 
+                }
+
+            }
 
         }
 
     }
-
-    public List<string> get_selected_files() {
+        
+    public Dictionary<string, long> get_selected_files() {
 
         lock (lock_object) { 
             return selected_files;
@@ -51,9 +59,32 @@ public class FileExplorer {
 
     }
 
-    public void clear_selected_files() { 
+    public void delete_selected_files(CheckedListBox box) { 
+        lock (lock_object)
+        {
+            foreach (string item in box.CheckedItems) {
+                this.selected_files.Remove(item);
+            }
+           
+        }
+    }
+
+    public void clear() { 
         lock(lock_object) { 
             this.selected_files.Clear();
+        }
+    }
+
+    public void refresh(CheckedListBox box) { 
+        lock(lock_object) {
+            // refresh selected
+            box.Items.Clear();
+
+            foreach (var item in FileExplorer.Instance.get_selected_files())
+            {
+                Debug.WriteLine(Path.GetFileName(item.Key));
+                box.Items.Add(item.Key, false);
+            }
         }
     }
 }
