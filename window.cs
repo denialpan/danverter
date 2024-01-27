@@ -9,6 +9,8 @@ namespace danverter {
         
         public danverter() {
             InitializeComponent();
+            this.MinimumSize = new System.Drawing.Size(600, 500);
+            this.Size = new System.Drawing.Size(600, 500);
         }
 
         private void button_browse_files_click(object sender, EventArgs e) {
