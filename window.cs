@@ -15,9 +15,9 @@ namespace danverter {
 
         private void button_browse_files_click(object sender, EventArgs e) {
 
-            Files.Instance.open_file_explorer();
+            FileExplorer.Instance.open_file_explorer();
 
-            foreach (string file in Files.Instance.get_selected_files()) {
+            foreach (string file in FileExplorer.Instance.get_selected_files()) {
                 Debug.WriteLine(Path.GetFileName(file));
             }
         }

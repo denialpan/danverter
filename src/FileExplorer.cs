@@ -3,23 +3,23 @@ using System.Windows.Forms;
 using System.Threading;
 
 // singleton implementation
-public class Files {
+public class FileExplorer {
 
-    private static Files instance;
+    private static FileExplorer instance;
     private static readonly object lock_object = new object();
     private List<string> selected_files = new List<string>();
 
-    private Files() {
+    private FileExplorer() {
         this.selected_files = new List<string>();
     }
 
-    public static Files Instance {
+    public static FileExplorer Instance {
 
         get { 
             if (instance == null) { 
                 lock(lock_object) {
                     if (instance == null) {
-                        instance = new Files();
+                        instance = new FileExplorer();
                     }
                 }
             }
