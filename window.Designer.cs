@@ -57,7 +57,7 @@
             groupbox_select_files.Controls.Add(button_browse_files);
             groupbox_select_files.Location = new Point(12, 12);
             groupbox_select_files.Name = "groupbox_select_files";
-            groupbox_select_files.Size = new Size(776, 311);
+            groupbox_select_files.Size = new Size(776, 253);
             groupbox_select_files.TabIndex = 1;
             groupbox_select_files.TabStop = false;
             groupbox_select_files.Text = "Select Files";
@@ -87,6 +87,7 @@
             // display_selected_files
             // 
             display_selected_files.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            display_selected_files.CheckOnClick = true;
             display_selected_files.FormattingEnabled = true;
             display_selected_files.Location = new Point(6, 51);
             display_selected_files.Name = "display_selected_files";
