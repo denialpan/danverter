@@ -3,23 +3,23 @@ using System.Windows.Forms;
 using System.Threading;
 
 // singleton implementation
-public class FileExplorer {
+public class MP3FileExplorer {
 
-    private static FileExplorer instance = new FileExplorer();
+    private static MP3FileExplorer instance = new MP3FileExplorer();
     private static readonly object lock_object = new object();
     private Dictionary<string, long> selected_files = new Dictionary<string, long>();
 
-    private FileExplorer() {
+    private MP3FileExplorer() {
         this.selected_files = new Dictionary<string, long>();
     }
 
-    public static FileExplorer Instance {
+    public static MP3FileExplorer Instance {
 
         get { 
             if (instance == null) { 
                 lock(lock_object) {
                     if (instance == null) {
-                        instance = new FileExplorer();
+                        instance = new MP3FileExplorer();
                     }
                 }
             }
@@ -80,7 +80,7 @@ public class FileExplorer {
             // refresh selected
             box.Items.Clear();
 
-            foreach (var item in FileExplorer.Instance.get_selected_files())
+            foreach (var item in MP3FileExplorer.Instance.get_selected_files())
             {
                 Debug.WriteLine(Path.GetFileName(item.Key));
                 box.Items.Add(item.Key, false);
