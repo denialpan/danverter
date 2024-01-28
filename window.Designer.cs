@@ -30,6 +30,7 @@
         {
             button_browse_mp3_files = new Button();
             groupbox_select_files = new GroupBox();
+            label_number_files = new Label();
             button_clear = new Button();
             button_delete_selected_files = new Button();
             display_selected_files = new CheckedListBox();
@@ -37,6 +38,7 @@
             tab_operation = new TabControl();
             tab_mp3_to_wav = new TabPage();
             groupbox_output = new GroupBox();
+            progress_mp3 = new ProgressBar();
             button_mp3_start = new Button();
             combobox_quality = new ComboBox();
             textbox_output_directory = new TextBox();
@@ -60,7 +62,8 @@
             // 
             // groupbox_select_files
             // 
-            groupbox_select_files.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupbox_select_files.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupbox_select_files.Controls.Add(label_number_files);
             groupbox_select_files.Controls.Add(button_clear);
             groupbox_select_files.Controls.Add(button_delete_selected_files);
             groupbox_select_files.Controls.Add(display_selected_files);
@@ -72,6 +75,15 @@
             groupbox_select_files.TabIndex = 1;
             groupbox_select_files.TabStop = false;
             groupbox_select_files.Text = "Select Files";
+            // 
+            // label_number_files
+            // 
+            label_number_files.AutoSize = true;
+            label_number_files.Location = new Point(6, 227);
+            label_number_files.Name = "label_number_files";
+            label_number_files.Size = new Size(39, 15);
+            label_number_files.TabIndex = 6;
+            label_number_files.Text = "0 Files";
             // 
             // button_clear
             // 
@@ -116,13 +128,13 @@
             // 
             // tab_operation
             // 
-            tab_operation.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tab_operation.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tab_operation.Controls.Add(tab_mp3_to_wav);
             tab_operation.Controls.Add(tab_drew_shadowplay);
             tab_operation.Location = new Point(12, 12);
             tab_operation.Name = "tab_operation";
             tab_operation.SelectedIndex = 0;
-            tab_operation.Size = new Size(573, 487);
+            tab_operation.Size = new Size(573, 532);
             tab_operation.TabIndex = 2;
             // 
             // tab_mp3_to_wav
@@ -132,31 +144,40 @@
             tab_mp3_to_wav.Location = new Point(4, 24);
             tab_mp3_to_wav.Name = "tab_mp3_to_wav";
             tab_mp3_to_wav.Padding = new Padding(3);
-            tab_mp3_to_wav.Size = new Size(565, 459);
+            tab_mp3_to_wav.Size = new Size(565, 504);
             tab_mp3_to_wav.TabIndex = 0;
             tab_mp3_to_wav.Text = "mp3 to wav";
             tab_mp3_to_wav.UseVisualStyleBackColor = true;
             // 
             // groupbox_output
             // 
-            groupbox_output.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupbox_output.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupbox_output.Controls.Add(progress_mp3);
             groupbox_output.Controls.Add(button_mp3_start);
             groupbox_output.Controls.Add(combobox_quality);
             groupbox_output.Controls.Add(textbox_output_directory);
             groupbox_output.Controls.Add(button_output_mp3_wav);
             groupbox_output.Location = new Point(6, 265);
             groupbox_output.Name = "groupbox_output";
-            groupbox_output.Size = new Size(553, 188);
+            groupbox_output.Size = new Size(553, 233);
             groupbox_output.TabIndex = 2;
             groupbox_output.TabStop = false;
             groupbox_output.Text = "Output";
             // 
+            // progress_mp3
+            // 
+            progress_mp3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            progress_mp3.Location = new Point(6, 204);
+            progress_mp3.Name = "progress_mp3";
+            progress_mp3.Size = new Size(460, 23);
+            progress_mp3.TabIndex = 3;
+            // 
             // button_mp3_start
             // 
             button_mp3_start.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button_mp3_start.Location = new Point(472, 159);
+            button_mp3_start.Location = new Point(472, 203);
             button_mp3_start.Name = "button_mp3_start";
-            button_mp3_start.Size = new Size(75, 23);
+            button_mp3_start.Size = new Size(75, 25);
             button_mp3_start.TabIndex = 3;
             button_mp3_start.Text = "Start";
             button_mp3_start.UseVisualStyleBackColor = true;
@@ -196,7 +217,7 @@
             tab_drew_shadowplay.Location = new Point(4, 24);
             tab_drew_shadowplay.Name = "tab_drew_shadowplay";
             tab_drew_shadowplay.Padding = new Padding(3);
-            tab_drew_shadowplay.Size = new Size(565, 459);
+            tab_drew_shadowplay.Size = new Size(565, 504);
             tab_drew_shadowplay.TabIndex = 1;
             tab_drew_shadowplay.Text = "drew shadowplay";
             tab_drew_shadowplay.UseVisualStyleBackColor = true;
@@ -205,7 +226,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(597, 521);
+            ClientSize = new Size(597, 556);
             Controls.Add(tab_operation);
             Name = "Danverter";
             Text = "danverter";
@@ -234,5 +255,7 @@
         private TextBox textbox_output_directory;
         private ComboBox combobox_quality;
         private Button button_mp3_start;
+        private ProgressBar progress_mp3;
+        private Label label_number_files;
     }
 }
