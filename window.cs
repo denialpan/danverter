@@ -22,19 +22,19 @@ namespace danverter {
         private void mp3_button_browse_files_click(object sender, EventArgs e)
         {
             MP3FileExplorer.Instance.open_file_explorer();
-            MP3FileExplorer.Instance.refresh(display_selected_files, label_number_files);
+            MP3FileExplorer.Instance.refresh(display_selected_mp3_files, label_number_files);
         }
 
         private void mp3_button_delete_selected_files_click(object sender, EventArgs e)
         {
-            MP3FileExplorer.Instance.delete_selected_files(display_selected_files);
-            MP3FileExplorer.Instance.refresh(display_selected_files, label_number_files);
+            MP3FileExplorer.Instance.delete_selected_files(display_selected_mp3_files);
+            MP3FileExplorer.Instance.refresh(display_selected_mp3_files, label_number_files);
         }
 
         private void mp3_button_clear_click(object sender, EventArgs e)
         {
             MP3FileExplorer.Instance.clear();
-            MP3FileExplorer.Instance.refresh(display_selected_files, label_number_files);
+            MP3FileExplorer.Instance.refresh(display_selected_mp3_files, label_number_files);
         }
 
         private void mp3_button_output_directory(object sender, EventArgs e)
