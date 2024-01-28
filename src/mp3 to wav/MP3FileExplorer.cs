@@ -1,6 +1,4 @@
 using System.Diagnostics;
-using System.Windows.Forms;
-using System.Threading;
 
 // singleton implementation
 public class MP3FileExplorer {
@@ -44,7 +42,7 @@ public class MP3FileExplorer {
 
             foreach(string file in file_explorer.FileNames) {
 
-                if (!selected_files.ContainsKey(file)) {
+                if (!selected_files.ContainsKey(Path.GetFileName(file))) {
                     this.selected_files.Add(Path.GetFileName(file), file);
                 }
 
@@ -78,7 +76,7 @@ public class MP3FileExplorer {
         }
     }
 
-    public void refresh(CheckedListBox box) { 
+    public void refresh(CheckedListBox box, Label label) { 
         lock(lock_object) {
             // refresh selected
             box.Items.Clear();
@@ -88,6 +86,7 @@ public class MP3FileExplorer {
                 Debug.WriteLine(Path.GetFileName(item.Key));
                 box.Items.Add(Path.GetFileName(item.Key), false);
             }
+            label.Text = selected_files.Count.ToString() + " files";
         }
     }
 
@@ -110,7 +109,7 @@ public class MP3FileExplorer {
 
     }
 
-    public void start_mp3_to_wav(ComboBox ar_quality) {
+    public void start_mp3_to_wav(ComboBox ar_quality, ProgressBar progress) {
 
         Debug.WriteLine(this.output_directory);
         
@@ -118,8 +117,11 @@ public class MP3FileExplorer {
             MessageBox.Show("No output directory specified");
         } else {
 
-            // safely dispose of process once all commands have been completed
+            int amount_of_commands = this.selected_files.Count;
+            progress.Maximum = amount_of_commands;
+            progress.Value = 0;
 
+            // safely dispose of process once all commands have been completed
             using (Process mp3_process = new Process
             {
 
@@ -165,12 +167,16 @@ public class MP3FileExplorer {
                     Debug.WriteLine($"Output: {output}");
                     Debug.WriteLine($"Error: {error}");
 
+                    progress.Value++;
+
                 };
 
                 Debug.WriteLine("All FFmpeg commands executed.");
                 Debug.WriteLine("amount of commands executed: " + selected_files.Count);
 
+                progress.Value = amount_of_commands;
                 MessageBox.Show("All conversions completed.");
+
 
             }
         }
