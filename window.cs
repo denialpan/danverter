@@ -42,9 +42,8 @@ namespace danverter {
             MP3FileExplorer.Instance.set_output_directory(textbox_output_directory);
         }
 
-        private void mp3_button_start(object sender, EventArgs e)
-        {
-
+        private void mp3_button_start(object sender, EventArgs e) {
+            MP3FileExplorer.Instance.start_mp3_to_wav(combobox_quality);
         }
     }
 }

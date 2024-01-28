@@ -37,7 +37,9 @@
             tab_operation = new TabControl();
             tab_mp3_to_wav = new TabPage();
             groupbox_output = new GroupBox();
-            textBox1 = new TextBox();
+            button_mp3_start = new Button();
+            combobox_quality = new ComboBox();
+            textbox_output_directory = new TextBox();
             button_output_mp3_wav = new Button();
             tab_drew_shadowplay = new TabPage();
             groupbox_select_files.SuspendLayout();
@@ -138,7 +140,9 @@
             // groupbox_output
             // 
             groupbox_output.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            groupbox_output.Controls.Add(textBox1);
+            groupbox_output.Controls.Add(button_mp3_start);
+            groupbox_output.Controls.Add(combobox_quality);
+            groupbox_output.Controls.Add(textbox_output_directory);
             groupbox_output.Controls.Add(button_output_mp3_wav);
             groupbox_output.Location = new Point(6, 265);
             groupbox_output.Name = "groupbox_output";
@@ -147,14 +151,35 @@
             groupbox_output.TabStop = false;
             groupbox_output.Text = "Output";
             // 
-            // textBox1
+            // button_mp3_start
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(87, 22);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(460, 23);
-            textBox1.TabIndex = 1;
+            button_mp3_start.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button_mp3_start.Location = new Point(472, 159);
+            button_mp3_start.Name = "button_mp3_start";
+            button_mp3_start.Size = new Size(75, 23);
+            button_mp3_start.TabIndex = 3;
+            button_mp3_start.Text = "Start";
+            button_mp3_start.UseVisualStyleBackColor = true;
+            button_mp3_start.Click += mp3_button_start;
+            // 
+            // combobox_quality
+            // 
+            combobox_quality.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            combobox_quality.DropDownStyle = ComboBoxStyle.DropDownList;
+            combobox_quality.FormattingEnabled = true;
+            combobox_quality.Location = new Point(472, 22);
+            combobox_quality.Name = "combobox_quality";
+            combobox_quality.Size = new Size(75, 23);
+            combobox_quality.TabIndex = 2;
+            // 
+            // textbox_output_directory
+            // 
+            textbox_output_directory.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textbox_output_directory.Location = new Point(87, 22);
+            textbox_output_directory.Name = "textbox_output_directory";
+            textbox_output_directory.ReadOnly = true;
+            textbox_output_directory.Size = new Size(379, 23);
+            textbox_output_directory.TabIndex = 1;
             // 
             // button_output_mp3_wav
             // 
@@ -206,6 +231,8 @@
         private TabPage tab_drew_shadowplay;
         private GroupBox groupbox_output;
         private Button button_output_mp3_wav;
-        private TextBox textBox1;
+        private TextBox textbox_output_directory;
+        private ComboBox combobox_quality;
+        private Button button_mp3_start;
     }
 }
