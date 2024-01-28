@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "danverter", "danverter.csproj", "{1FF1234B-B9EB-4E07-886C-D04D280D1371}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "installer", "installer\installer.vdproj", "{30E845ED-6643-4202-BCBC-D0394DCB1270}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|Any CPU = All|Any CPU
@@ -18,6 +20,9 @@ Global
 		{1FF1234B-B9EB-4E07-886C-D04D280D1371}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FF1234B-B9EB-4E07-886C-D04D280D1371}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FF1234B-B9EB-4E07-886C-D04D280D1371}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30E845ED-6643-4202-BCBC-D0394DCB1270}.All|Any CPU.ActiveCfg = Debug
+		{30E845ED-6643-4202-BCBC-D0394DCB1270}.Debug|Any CPU.ActiveCfg = Debug
+		{30E845ED-6643-4202-BCBC-D0394DCB1270}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
