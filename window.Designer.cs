@@ -62,7 +62,7 @@
             // 
             // groupbox_select_files
             // 
-            groupbox_select_files.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupbox_select_files.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupbox_select_files.Controls.Add(label_number_files);
             groupbox_select_files.Controls.Add(button_clear);
             groupbox_select_files.Controls.Add(button_delete_selected_files);
@@ -71,15 +71,16 @@
             groupbox_select_files.Controls.Add(button_browse_mp3_files);
             groupbox_select_files.Location = new Point(6, 6);
             groupbox_select_files.Name = "groupbox_select_files";
-            groupbox_select_files.Size = new Size(553, 253);
+            groupbox_select_files.Size = new Size(553, 400);
             groupbox_select_files.TabIndex = 1;
             groupbox_select_files.TabStop = false;
             groupbox_select_files.Text = "Select Files";
             // 
             // label_number_files
             // 
+            label_number_files.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label_number_files.AutoSize = true;
-            label_number_files.Location = new Point(6, 227);
+            label_number_files.Location = new Point(6, 371);
             label_number_files.Name = "label_number_files";
             label_number_files.Size = new Size(39, 15);
             label_number_files.TabIndex = 6;
@@ -87,8 +88,8 @@
             // 
             // button_clear
             // 
-            button_clear.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button_clear.Location = new Point(472, 223);
+            button_clear.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button_clear.Location = new Point(472, 367);
             button_clear.Name = "button_clear";
             button_clear.Size = new Size(75, 23);
             button_clear.TabIndex = 5;
@@ -98,8 +99,8 @@
             // 
             // button_delete_selected_files
             // 
-            button_delete_selected_files.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button_delete_selected_files.Location = new Point(348, 223);
+            button_delete_selected_files.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button_delete_selected_files.Location = new Point(348, 367);
             button_delete_selected_files.Name = "button_delete_selected_files";
             button_delete_selected_files.Size = new Size(118, 23);
             button_delete_selected_files.TabIndex = 4;
@@ -109,12 +110,12 @@
             // 
             // display_selected_files
             // 
-            display_selected_files.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            display_selected_files.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             display_selected_files.CheckOnClick = true;
             display_selected_files.FormattingEnabled = true;
             display_selected_files.Location = new Point(6, 51);
             display_selected_files.Name = "display_selected_files";
-            display_selected_files.Size = new Size(541, 166);
+            display_selected_files.Size = new Size(541, 310);
             display_selected_files.TabIndex = 3;
             // 
             // label_description
@@ -151,15 +152,15 @@
             // 
             // groupbox_output
             // 
-            groupbox_output.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupbox_output.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupbox_output.Controls.Add(progress_mp3);
             groupbox_output.Controls.Add(button_mp3_start);
             groupbox_output.Controls.Add(combobox_quality);
             groupbox_output.Controls.Add(textbox_output_directory);
             groupbox_output.Controls.Add(button_output_mp3_wav);
-            groupbox_output.Location = new Point(6, 265);
+            groupbox_output.Location = new Point(6, 412);
             groupbox_output.Name = "groupbox_output";
-            groupbox_output.Size = new Size(553, 233);
+            groupbox_output.Size = new Size(553, 86);
             groupbox_output.TabIndex = 2;
             groupbox_output.TabStop = false;
             groupbox_output.Text = "Output";
@@ -167,7 +168,7 @@
             // progress_mp3
             // 
             progress_mp3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            progress_mp3.Location = new Point(6, 204);
+            progress_mp3.Location = new Point(6, 57);
             progress_mp3.Name = "progress_mp3";
             progress_mp3.Size = new Size(460, 23);
             progress_mp3.TabIndex = 3;
@@ -175,7 +176,7 @@
             // button_mp3_start
             // 
             button_mp3_start.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button_mp3_start.Location = new Point(472, 203);
+            button_mp3_start.Location = new Point(472, 56);
             button_mp3_start.Name = "button_mp3_start";
             button_mp3_start.Size = new Size(75, 25);
             button_mp3_start.TabIndex = 3;

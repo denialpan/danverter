@@ -46,5 +46,10 @@ namespace danverter {
         {
             MP3FileExplorer.Instance.start_mp3_to_wav(combobox_quality, progress_mp3);
         }
+
+        private void label_number_files_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
