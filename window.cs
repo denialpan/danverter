@@ -10,6 +10,11 @@ namespace danverter {
             InitializeComponent();
             this.MinimumSize = new System.Drawing.Size(600, 600);
             this.Size = new System.Drawing.Size(600, 600);
+
+            string[] quality_options = new string[] { "44100 Hz", "48000 Hz" };
+
+            combobox_quality.Items.AddRange(quality_options);
+            combobox_quality.SelectedIndex = 1;
         }
 
         // some organization on this, but this might be really messy anyways
@@ -33,6 +38,11 @@ namespace danverter {
         }
 
         private void mp3_button_output_directory(object sender, EventArgs e)
+        {
+            MP3FileExplorer.Instance.set_output_directory(textbox_output_directory);
+        }
+
+        private void mp3_button_start(object sender, EventArgs e)
         {
 
         }
