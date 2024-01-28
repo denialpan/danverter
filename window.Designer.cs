@@ -266,33 +266,36 @@
             // 
             // tablelayout_output_options
             // 
+            tablelayout_output_options.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tablelayout_output_options.ColumnCount = 2;
             tablelayout_output_options.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tablelayout_output_options.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tablelayout_output_options.Controls.Add(groupbox_mp3_options, 0, 0);
             tablelayout_output_options.Controls.Add(groupbox_mp4_options, 1, 0);
-            tablelayout_output_options.Location = new Point(61, 22);
+            tablelayout_output_options.Location = new Point(87, 13);
             tablelayout_output_options.Name = "tablelayout_output_options";
             tablelayout_output_options.RowCount = 1;
             tablelayout_output_options.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tablelayout_output_options.Size = new Size(486, 261);
+            tablelayout_output_options.Size = new Size(460, 270);
             tablelayout_output_options.TabIndex = 2;
             // 
             // groupbox_mp3_options
             // 
+            groupbox_mp3_options.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupbox_mp3_options.Location = new Point(3, 3);
             groupbox_mp3_options.Name = "groupbox_mp3_options";
-            groupbox_mp3_options.Size = new Size(237, 255);
+            groupbox_mp3_options.Size = new Size(224, 264);
             groupbox_mp3_options.TabIndex = 3;
             groupbox_mp3_options.TabStop = false;
             groupbox_mp3_options.Text = "mp3";
             // 
             // groupbox_mp4_options
             // 
+            groupbox_mp4_options.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupbox_mp4_options.Enabled = false;
-            groupbox_mp4_options.Location = new Point(246, 3);
+            groupbox_mp4_options.Location = new Point(233, 3);
             groupbox_mp4_options.Name = "groupbox_mp4_options";
-            groupbox_mp4_options.Size = new Size(237, 255);
+            groupbox_mp4_options.Size = new Size(224, 264);
             groupbox_mp4_options.TabIndex = 4;
             groupbox_mp4_options.TabStop = false;
             groupbox_mp4_options.Text = "mp4";
@@ -300,7 +303,7 @@
             // radiobutton_mp4
             // 
             radiobutton_mp4.AutoSize = true;
-            radiobutton_mp4.Location = new Point(6, 47);
+            radiobutton_mp4.Location = new Point(18, 47);
             radiobutton_mp4.Name = "radiobutton_mp4";
             radiobutton_mp4.Size = new Size(49, 19);
             radiobutton_mp4.TabIndex = 1;
@@ -312,7 +315,7 @@
             // radiobutton_mp3
             // 
             radiobutton_mp3.AutoSize = true;
-            radiobutton_mp3.Location = new Point(6, 22);
+            radiobutton_mp3.Location = new Point(18, 22);
             radiobutton_mp3.Name = "radiobutton_mp3";
             radiobutton_mp3.Size = new Size(49, 19);
             radiobutton_mp3.TabIndex = 0;
