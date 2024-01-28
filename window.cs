@@ -47,9 +47,30 @@ namespace danverter {
             MP3FileExplorer.Instance.start_mp3_to_wav(combobox_quality, progress_mp3);
         }
 
-        private void label_number_files_Click(object sender, EventArgs e)
+        private void button_select_file_shadowplay_click(object sender, EventArgs e)
         {
-
+            ShadowplayFileExplorer.Instance.open_file_explorer();
+            textbox_file_shadowplay.Text = ShadowplayFileExplorer.Instance.get_file();
         }
+
+        private void button_shadowplay_start_click(object sender, EventArgs e)
+        {
+            ShadowplayFileExplorer.Instance.start_mp4_conversion();
+        }
+
+        private void radiobutton_mp3_CheckedChanged(object sender, EventArgs e)
+        {
+            ShadowplayFileExplorer.Instance.set_output_type("mp3");
+            groupbox_mp4_options.Enabled = false;
+            groupbox_mp3_options.Enabled = true;
+        }
+
+        private void radiobutton_mp4_CheckedChanged(object sender, EventArgs e)
+        {
+            ShadowplayFileExplorer.Instance.set_output_type("mp4");
+            groupbox_mp3_options.Enabled = false;
+            groupbox_mp4_options.Enabled = true;
+        }
+
     }
 }

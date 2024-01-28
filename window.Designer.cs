@@ -44,14 +44,23 @@
             textbox_output_directory = new TextBox();
             button_output_mp3_wav = new Button();
             tab_drew_shadowplay = new TabPage();
+            button_shadowplay_start = new Button();
+            groupbox_shadowplay_settings = new GroupBox();
+            tablelayout_output_options = new TableLayoutPanel();
+            groupbox_mp3_options = new GroupBox();
+            groupbox_mp4_options = new GroupBox();
+            radiobutton_mp4 = new RadioButton();
+            radiobutton_mp3 = new RadioButton();
             groupbox_select_file_shadowplay = new GroupBox();
-            textBox1 = new TextBox();
+            textbox_file_shadowplay = new TextBox();
             button_select_file_shadowplay = new Button();
             groupbox_select_files_mp3.SuspendLayout();
             tab_operation.SuspendLayout();
             tab_mp3_to_wav.SuspendLayout();
             groupbox_output.SuspendLayout();
             tab_drew_shadowplay.SuspendLayout();
+            groupbox_shadowplay_settings.SuspendLayout();
+            tablelayout_output_options.SuspendLayout();
             groupbox_select_file_shadowplay.SuspendLayout();
             SuspendLayout();
             // 
@@ -220,6 +229,8 @@
             // 
             // tab_drew_shadowplay
             // 
+            tab_drew_shadowplay.Controls.Add(button_shadowplay_start);
+            tab_drew_shadowplay.Controls.Add(groupbox_shadowplay_settings);
             tab_drew_shadowplay.Controls.Add(groupbox_select_file_shadowplay);
             tab_drew_shadowplay.Location = new Point(4, 24);
             tab_drew_shadowplay.Name = "tab_drew_shadowplay";
@@ -229,34 +240,116 @@
             tab_drew_shadowplay.Text = "drew shadowplay";
             tab_drew_shadowplay.UseVisualStyleBackColor = true;
             // 
+            // button_shadowplay_start
+            // 
+            button_shadowplay_start.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button_shadowplay_start.Location = new Point(484, 473);
+            button_shadowplay_start.Name = "button_shadowplay_start";
+            button_shadowplay_start.Size = new Size(75, 25);
+            button_shadowplay_start.TabIndex = 2;
+            button_shadowplay_start.Text = "Start";
+            button_shadowplay_start.UseVisualStyleBackColor = true;
+            button_shadowplay_start.Click += button_shadowplay_start_click;
+            // 
+            // groupbox_shadowplay_settings
+            // 
+            groupbox_shadowplay_settings.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupbox_shadowplay_settings.Controls.Add(tablelayout_output_options);
+            groupbox_shadowplay_settings.Controls.Add(radiobutton_mp4);
+            groupbox_shadowplay_settings.Controls.Add(radiobutton_mp3);
+            groupbox_shadowplay_settings.Location = new Point(6, 69);
+            groupbox_shadowplay_settings.Name = "groupbox_shadowplay_settings";
+            groupbox_shadowplay_settings.Size = new Size(553, 289);
+            groupbox_shadowplay_settings.TabIndex = 2;
+            groupbox_shadowplay_settings.TabStop = false;
+            groupbox_shadowplay_settings.Text = "Settings";
+            // 
+            // tablelayout_output_options
+            // 
+            tablelayout_output_options.ColumnCount = 2;
+            tablelayout_output_options.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tablelayout_output_options.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tablelayout_output_options.Controls.Add(groupbox_mp3_options, 0, 0);
+            tablelayout_output_options.Controls.Add(groupbox_mp4_options, 1, 0);
+            tablelayout_output_options.Location = new Point(61, 22);
+            tablelayout_output_options.Name = "tablelayout_output_options";
+            tablelayout_output_options.RowCount = 1;
+            tablelayout_output_options.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tablelayout_output_options.Size = new Size(486, 261);
+            tablelayout_output_options.TabIndex = 2;
+            // 
+            // groupbox_mp3_options
+            // 
+            groupbox_mp3_options.Location = new Point(3, 3);
+            groupbox_mp3_options.Name = "groupbox_mp3_options";
+            groupbox_mp3_options.Size = new Size(237, 255);
+            groupbox_mp3_options.TabIndex = 3;
+            groupbox_mp3_options.TabStop = false;
+            groupbox_mp3_options.Text = "mp3";
+            // 
+            // groupbox_mp4_options
+            // 
+            groupbox_mp4_options.Enabled = false;
+            groupbox_mp4_options.Location = new Point(246, 3);
+            groupbox_mp4_options.Name = "groupbox_mp4_options";
+            groupbox_mp4_options.Size = new Size(237, 255);
+            groupbox_mp4_options.TabIndex = 4;
+            groupbox_mp4_options.TabStop = false;
+            groupbox_mp4_options.Text = "mp4";
+            // 
+            // radiobutton_mp4
+            // 
+            radiobutton_mp4.AutoSize = true;
+            radiobutton_mp4.Location = new Point(6, 47);
+            radiobutton_mp4.Name = "radiobutton_mp4";
+            radiobutton_mp4.Size = new Size(49, 19);
+            radiobutton_mp4.TabIndex = 1;
+            radiobutton_mp4.TabStop = true;
+            radiobutton_mp4.Text = "mp4";
+            radiobutton_mp4.UseVisualStyleBackColor = true;
+            radiobutton_mp4.CheckedChanged += radiobutton_mp4_CheckedChanged;
+            // 
+            // radiobutton_mp3
+            // 
+            radiobutton_mp3.AutoSize = true;
+            radiobutton_mp3.Location = new Point(6, 22);
+            radiobutton_mp3.Name = "radiobutton_mp3";
+            radiobutton_mp3.Size = new Size(49, 19);
+            radiobutton_mp3.TabIndex = 0;
+            radiobutton_mp3.TabStop = true;
+            radiobutton_mp3.Text = "mp3";
+            radiobutton_mp3.UseVisualStyleBackColor = true;
+            radiobutton_mp3.CheckedChanged += radiobutton_mp3_CheckedChanged;
+            // 
             // groupbox_select_file_shadowplay
             // 
             groupbox_select_file_shadowplay.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            groupbox_select_file_shadowplay.Controls.Add(textBox1);
+            groupbox_select_file_shadowplay.Controls.Add(textbox_file_shadowplay);
             groupbox_select_file_shadowplay.Controls.Add(button_select_file_shadowplay);
             groupbox_select_file_shadowplay.Location = new Point(6, 6);
             groupbox_select_file_shadowplay.Name = "groupbox_select_file_shadowplay";
             groupbox_select_file_shadowplay.Size = new Size(553, 57);
             groupbox_select_file_shadowplay.TabIndex = 0;
             groupbox_select_file_shadowplay.TabStop = false;
-            groupbox_select_file_shadowplay.Text = "Select video";
+            groupbox_select_file_shadowplay.Text = "Select Video";
             // 
-            // textBox1
+            // textbox_file_shadowplay
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(87, 22);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(460, 23);
-            textBox1.TabIndex = 1;
+            textbox_file_shadowplay.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textbox_file_shadowplay.Location = new Point(87, 21);
+            textbox_file_shadowplay.Name = "textbox_file_shadowplay";
+            textbox_file_shadowplay.Size = new Size(460, 23);
+            textbox_file_shadowplay.TabIndex = 1;
             // 
             // button_select_file_shadowplay
             // 
-            button_select_file_shadowplay.Location = new Point(6, 21);
+            button_select_file_shadowplay.Location = new Point(6, 20);
             button_select_file_shadowplay.Name = "button_select_file_shadowplay";
             button_select_file_shadowplay.Size = new Size(75, 25);
             button_select_file_shadowplay.TabIndex = 0;
             button_select_file_shadowplay.Text = "Browse ...";
             button_select_file_shadowplay.UseVisualStyleBackColor = true;
+            button_select_file_shadowplay.Click += button_select_file_shadowplay_click;
             // 
             // Danverter
             // 
@@ -273,6 +366,9 @@
             groupbox_output.ResumeLayout(false);
             groupbox_output.PerformLayout();
             tab_drew_shadowplay.ResumeLayout(false);
+            groupbox_shadowplay_settings.ResumeLayout(false);
+            groupbox_shadowplay_settings.PerformLayout();
+            tablelayout_output_options.ResumeLayout(false);
             groupbox_select_file_shadowplay.ResumeLayout(false);
             groupbox_select_file_shadowplay.PerformLayout();
             ResumeLayout(false);
@@ -298,6 +394,13 @@
         private Label label_number_files;
         private GroupBox groupbox_select_file_shadowplay;
         private Button button_select_file_shadowplay;
-        private TextBox textBox1;
+        private TextBox textbox_file_shadowplay;
+        private GroupBox groupbox_shadowplay_settings;
+        private RadioButton radiobutton_mp4;
+        private RadioButton radiobutton_mp3;
+        private Button button_shadowplay_start;
+        private TableLayoutPanel tablelayout_output_options;
+        private GroupBox groupbox_mp3_options;
+        private GroupBox groupbox_mp4_options;
     }
 }
