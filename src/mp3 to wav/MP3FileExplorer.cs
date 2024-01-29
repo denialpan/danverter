@@ -149,7 +149,7 @@ public class MP3FileExplorer {
 
                     Debug.WriteLine(pair.Value);
 
-                    string ffmpeg_command = $"-y -i \"{pair.Value}\" -ar {hz} -f wav \"{output_directory}\\{Path.GetFileNameWithoutExtension(pair.Key)}.wav\"";
+                    string ffmpeg_command = $"-y -i \"{pair.Value}\" -map 0:a -c:a copy -map_metadata -1 -ar {hz} -f wav \"{output_directory}\\{Path.GetFileNameWithoutExtension(pair.Key)}.wav\"";
                     Debug.WriteLine(ffmpeg_command);
                     mp3_process.StartInfo.Arguments = ffmpeg_command;
 
