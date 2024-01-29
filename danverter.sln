@@ -7,6 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "danverter", "danverter.cspr
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "installer", "installer\installer.vdproj", "{30E845ED-6643-4202-BCBC-D0394DCB1270}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images showcase", "images showcase", "{F318AD5A-5B2A-4F40-A51B-EE42AF6CD28B}"
+	ProjectSection(SolutionItems) = preProject
+		..\Daniel\png\danverter_1.png = ..\Daniel\png\danverter_1.png
+		..\Daniel\png\danverter_2.png = ..\Daniel\png\danverter_2.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|Any CPU = All|Any CPU
