@@ -17,13 +17,6 @@
 - Extremely lightweight
 
 ### Future things to add/implement
-- Estimate calculated file sizes before mp4 conversion
-- Create more reliable and modular progress bar
-- Option to resize
-- Option to delete original after processed
-- Drag and drop files
-- Timeframe validation
-- Better console output for users
-- **Clean up code**
+- ![Features](https://github.com/users/denialpan/projects/2) that are currently being in the works
 
 ### ![Download](https://github.com/denialpan/danverter/releases/)
