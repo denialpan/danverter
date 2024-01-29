@@ -15,8 +15,8 @@ namespace danverter {
             string[] audio_quality = new string[] { "320 kbps (Insane)", "256 kbps (Extreme)", "192 kbps (Standard) (default)", "128 kbps (Medium)" };
 
 
-            combobox_quality.Items.AddRange(mp3_to_wav_quality);
-            combobox_quality.SelectedIndex = 1;
+            combobox_wav_quality.Items.AddRange(mp3_to_wav_quality);
+            combobox_wav_quality.SelectedIndex = 1;
 
             combobox_audio_quality.Items.AddRange(audio_quality);
             combobox_audio_quality.SelectedIndex = 2;
@@ -24,6 +24,8 @@ namespace danverter {
             checkbox_automatic_quality.Checked = true;
 
             radiobutton_mp4.Checked = true;
+            textbox_average_bps.Text = "4000000";
+
         }
 
         // some organization on this, but this might be really messy anyways
@@ -53,7 +55,7 @@ namespace danverter {
 
         private void mp3_button_start(object sender, EventArgs e)
         {
-            MP3FileExplorer.Instance.start_mp3_to_wav(combobox_quality, progress_mp3);
+            MP3FileExplorer.Instance.start_mp3_to_wav(combobox_wav_quality, progress_mp3);
         }
 
         private void button_select_file_shadowplay_click(object sender, EventArgs e)
@@ -64,7 +66,15 @@ namespace danverter {
 
         private void button_shadowplay_start_click(object sender, EventArgs e)
         {
-            ShadowplayFileExplorer.Instance.start_mp4_conversion();
+
+            if (radiobutton_mp3.Checked)
+            {
+                ShadowplayFileExplorer.Instance.start_mp4_to_mp3_conversion(masked_time_start.Text, masked_time_end.Text, combobox_audio_quality.SelectedIndex, textbox_filename.Text);
+            }
+            else {
+                ShadowplayFileExplorer.Instance.start_mp4_to_trimmed_mp4_conversion(masked_time_start.Text, masked_time_end.Text, checkbox_automatic_quality.Checked, Int32.Parse(textbox_average_bps.Text), textbox_filename.Text);
+            }
+
         }
 
         private void radiobutton_mp3_CheckedChanged(object sender, EventArgs e)
@@ -79,11 +89,6 @@ namespace danverter {
             ShadowplayFileExplorer.Instance.set_output_type("mp4");
             groupbox_mp3_options.Enabled = false;
             groupbox_mp4_options.Enabled = true;
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void checkbox_automatic_quality_CheckedChanged(object sender, EventArgs e)
@@ -110,5 +115,6 @@ namespace danverter {
         {
             ShadowplayFileExplorer.Instance.set_output_directory(textbox_output_directory_shadowplay);
         }
+
     }
 }

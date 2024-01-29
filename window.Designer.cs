@@ -40,11 +40,13 @@
             groupbox_output = new GroupBox();
             progress_mp3 = new ProgressBar();
             button_mp3_start = new Button();
-            combobox_quality = new ComboBox();
+            combobox_wav_quality = new ComboBox();
             textbox_output_directory_mp3 = new TextBox();
             button_output_mp3_wav = new Button();
             tab_drew_shadowplay = new TabPage();
             groupbox_output_shadowplay = new GroupBox();
+            textbox_filename = new TextBox();
+            label_filename = new Label();
             progress_shadowplay = new ProgressBar();
             textbox_output_directory_shadowplay = new TextBox();
             button_output_directory_shadowplay = new Button();
@@ -54,7 +56,7 @@
             label_timestamp_example = new Label();
             masked_time_end = new MaskedTextBox();
             label_time_end = new Label();
-            lable_time_start = new Label();
+            label_time_start = new Label();
             masked_time_start = new MaskedTextBox();
             tablelayout_output_options = new TableLayoutPanel();
             groupbox_mp3_options = new GroupBox();
@@ -64,7 +66,7 @@
             checkbox_automatic_quality = new CheckBox();
             groupbox_advanced_options = new GroupBox();
             label_average_bitrate = new Label();
-            textBox1 = new TextBox();
+            textbox_average_bps = new TextBox();
             radiobutton_mp4 = new RadioButton();
             radiobutton_mp3 = new RadioButton();
             groupbox_select_file_shadowplay = new GroupBox();
@@ -190,7 +192,7 @@
             groupbox_output.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupbox_output.Controls.Add(progress_mp3);
             groupbox_output.Controls.Add(button_mp3_start);
-            groupbox_output.Controls.Add(combobox_quality);
+            groupbox_output.Controls.Add(combobox_wav_quality);
             groupbox_output.Controls.Add(textbox_output_directory_mp3);
             groupbox_output.Controls.Add(button_output_mp3_wav);
             groupbox_output.Location = new Point(6, 412);
@@ -203,7 +205,7 @@
             // progress_mp3
             // 
             progress_mp3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            progress_mp3.Location = new Point(7, 51);
+            progress_mp3.Location = new Point(7, 55);
             progress_mp3.Name = "progress_mp3";
             progress_mp3.Size = new Size(459, 23);
             progress_mp3.Step = 1;
@@ -212,7 +214,7 @@
             // button_mp3_start
             // 
             button_mp3_start.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button_mp3_start.Location = new Point(472, 51);
+            button_mp3_start.Location = new Point(472, 54);
             button_mp3_start.Name = "button_mp3_start";
             button_mp3_start.Size = new Size(75, 25);
             button_mp3_start.TabIndex = 3;
@@ -220,15 +222,15 @@
             button_mp3_start.UseVisualStyleBackColor = true;
             button_mp3_start.Click += mp3_button_start;
             // 
-            // combobox_quality
+            // combobox_wav_quality
             // 
-            combobox_quality.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            combobox_quality.DropDownStyle = ComboBoxStyle.DropDownList;
-            combobox_quality.FormattingEnabled = true;
-            combobox_quality.Location = new Point(473, 22);
-            combobox_quality.Name = "combobox_quality";
-            combobox_quality.Size = new Size(73, 23);
-            combobox_quality.TabIndex = 2;
+            combobox_wav_quality.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            combobox_wav_quality.DropDownStyle = ComboBoxStyle.DropDownList;
+            combobox_wav_quality.FormattingEnabled = true;
+            combobox_wav_quality.Location = new Point(473, 22);
+            combobox_wav_quality.Name = "combobox_wav_quality";
+            combobox_wav_quality.Size = new Size(73, 23);
+            combobox_wav_quality.TabIndex = 2;
             // 
             // textbox_output_directory_mp3
             // 
@@ -264,22 +266,44 @@
             // 
             // groupbox_output_shadowplay
             // 
+            groupbox_output_shadowplay.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupbox_output_shadowplay.Controls.Add(textbox_filename);
+            groupbox_output_shadowplay.Controls.Add(label_filename);
             groupbox_output_shadowplay.Controls.Add(progress_shadowplay);
             groupbox_output_shadowplay.Controls.Add(textbox_output_directory_shadowplay);
             groupbox_output_shadowplay.Controls.Add(button_output_directory_shadowplay);
             groupbox_output_shadowplay.Controls.Add(button_shadowplay_start);
-            groupbox_output_shadowplay.Location = new Point(6, 293);
+            groupbox_output_shadowplay.Location = new Point(6, 415);
             groupbox_output_shadowplay.Name = "groupbox_output_shadowplay";
-            groupbox_output_shadowplay.Size = new Size(553, 205);
+            groupbox_output_shadowplay.Size = new Size(553, 83);
             groupbox_output_shadowplay.TabIndex = 3;
             groupbox_output_shadowplay.TabStop = false;
             groupbox_output_shadowplay.Text = "Output";
             // 
+            // textbox_filename
+            // 
+            textbox_filename.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textbox_filename.Location = new Point(384, 23);
+            textbox_filename.Name = "textbox_filename";
+            textbox_filename.Size = new Size(161, 23);
+            textbox_filename.TabIndex = 7;
+            // 
+            // label_filename
+            // 
+            label_filename.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label_filename.AutoSize = true;
+            label_filename.Location = new Point(317, 27);
+            label_filename.Name = "label_filename";
+            label_filename.Size = new Size(61, 15);
+            label_filename.TabIndex = 6;
+            label_filename.Text = "File name:";
+            // 
             // progress_shadowplay
             // 
-            progress_shadowplay.Location = new Point(7, 51);
+            progress_shadowplay.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            progress_shadowplay.Location = new Point(7, 53);
             progress_shadowplay.Name = "progress_shadowplay";
-            progress_shadowplay.Size = new Size(460, 23);
+            progress_shadowplay.Size = new Size(458, 23);
             progress_shadowplay.TabIndex = 5;
             // 
             // textbox_output_directory_shadowplay
@@ -288,7 +312,7 @@
             textbox_output_directory_shadowplay.Location = new Point(87, 23);
             textbox_output_directory_shadowplay.Name = "textbox_output_directory_shadowplay";
             textbox_output_directory_shadowplay.ReadOnly = true;
-            textbox_output_directory_shadowplay.Size = new Size(460, 23);
+            textbox_output_directory_shadowplay.Size = new Size(224, 23);
             textbox_output_directory_shadowplay.TabIndex = 4;
             // 
             // button_output_directory_shadowplay
@@ -304,7 +328,7 @@
             // button_shadowplay_start
             // 
             button_shadowplay_start.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button_shadowplay_start.Location = new Point(473, 50);
+            button_shadowplay_start.Location = new Point(471, 52);
             button_shadowplay_start.Name = "button_shadowplay_start";
             button_shadowplay_start.Size = new Size(75, 25);
             button_shadowplay_start.TabIndex = 2;
@@ -314,14 +338,14 @@
             // 
             // groupbox_shadowplay_settings
             // 
-            groupbox_shadowplay_settings.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupbox_shadowplay_settings.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupbox_shadowplay_settings.Controls.Add(groupbox_timestamp);
             groupbox_shadowplay_settings.Controls.Add(tablelayout_output_options);
             groupbox_shadowplay_settings.Controls.Add(radiobutton_mp4);
             groupbox_shadowplay_settings.Controls.Add(radiobutton_mp3);
             groupbox_shadowplay_settings.Location = new Point(6, 69);
             groupbox_shadowplay_settings.Name = "groupbox_shadowplay_settings";
-            groupbox_shadowplay_settings.Size = new Size(553, 218);
+            groupbox_shadowplay_settings.Size = new Size(553, 340);
             groupbox_shadowplay_settings.TabIndex = 2;
             groupbox_shadowplay_settings.TabStop = false;
             groupbox_shadowplay_settings.Text = "Settings";
@@ -332,9 +356,9 @@
             groupbox_timestamp.Controls.Add(label_timestamp_example);
             groupbox_timestamp.Controls.Add(masked_time_end);
             groupbox_timestamp.Controls.Add(label_time_end);
-            groupbox_timestamp.Controls.Add(lable_time_start);
+            groupbox_timestamp.Controls.Add(label_time_start);
             groupbox_timestamp.Controls.Add(masked_time_start);
-            groupbox_timestamp.Location = new Point(6, 156);
+            groupbox_timestamp.Location = new Point(6, 278);
             groupbox_timestamp.Name = "groupbox_timestamp";
             groupbox_timestamp.Size = new Size(538, 56);
             groupbox_timestamp.TabIndex = 3;
@@ -368,14 +392,14 @@
             label_time_end.TabIndex = 2;
             label_time_end.Text = "End:";
             // 
-            // lable_time_start
+            // label_time_start
             // 
-            lable_time_start.AutoSize = true;
-            lable_time_start.Location = new Point(6, 28);
-            lable_time_start.Name = "lable_time_start";
-            lable_time_start.Size = new Size(34, 15);
-            lable_time_start.TabIndex = 1;
-            lable_time_start.Text = "Start:";
+            label_time_start.AutoSize = true;
+            label_time_start.Location = new Point(6, 28);
+            label_time_start.Name = "label_time_start";
+            label_time_start.Size = new Size(34, 15);
+            label_time_start.TabIndex = 1;
+            label_time_start.Text = "Start:";
             // 
             // masked_time_start
             // 
@@ -388,7 +412,7 @@
             // 
             // tablelayout_output_options
             // 
-            tablelayout_output_options.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tablelayout_output_options.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tablelayout_output_options.ColumnCount = 2;
             tablelayout_output_options.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tablelayout_output_options.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
@@ -398,7 +422,7 @@
             tablelayout_output_options.Name = "tablelayout_output_options";
             tablelayout_output_options.RowCount = 1;
             tablelayout_output_options.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tablelayout_output_options.Size = new Size(460, 146);
+            tablelayout_output_options.Size = new Size(460, 268);
             tablelayout_output_options.TabIndex = 2;
             // 
             // groupbox_mp3_options
@@ -408,7 +432,7 @@
             groupbox_mp3_options.Controls.Add(combobox_audio_quality);
             groupbox_mp3_options.Location = new Point(3, 3);
             groupbox_mp3_options.Name = "groupbox_mp3_options";
-            groupbox_mp3_options.Size = new Size(224, 140);
+            groupbox_mp3_options.Size = new Size(224, 262);
             groupbox_mp3_options.TabIndex = 3;
             groupbox_mp3_options.TabStop = false;
             groupbox_mp3_options.Text = "mp3";
@@ -431,7 +455,6 @@
             combobox_audio_quality.Name = "combobox_audio_quality";
             combobox_audio_quality.Size = new Size(212, 23);
             combobox_audio_quality.TabIndex = 3;
-            combobox_audio_quality.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // groupbox_mp4_options
             // 
@@ -441,7 +464,7 @@
             groupbox_mp4_options.Enabled = false;
             groupbox_mp4_options.Location = new Point(233, 3);
             groupbox_mp4_options.Name = "groupbox_mp4_options";
-            groupbox_mp4_options.Size = new Size(224, 140);
+            groupbox_mp4_options.Size = new Size(224, 262);
             groupbox_mp4_options.TabIndex = 4;
             groupbox_mp4_options.TabStop = false;
             groupbox_mp4_options.Text = "mp4";
@@ -451,9 +474,9 @@
             checkbox_automatic_quality.AutoSize = true;
             checkbox_automatic_quality.Location = new Point(6, 22);
             checkbox_automatic_quality.Name = "checkbox_automatic_quality";
-            checkbox_automatic_quality.Size = new Size(114, 19);
+            checkbox_automatic_quality.Size = new Size(110, 19);
             checkbox_automatic_quality.TabIndex = 0;
-            checkbox_automatic_quality.Text = "~ 20 MB - 25 MB";
+            checkbox_automatic_quality.Text = "usually < 25 MB";
             checkbox_automatic_quality.UseVisualStyleBackColor = true;
             checkbox_automatic_quality.CheckedChanged += checkbox_automatic_quality_CheckedChanged;
             // 
@@ -461,10 +484,10 @@
             // 
             groupbox_advanced_options.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupbox_advanced_options.Controls.Add(label_average_bitrate);
-            groupbox_advanced_options.Controls.Add(textBox1);
+            groupbox_advanced_options.Controls.Add(textbox_average_bps);
             groupbox_advanced_options.Location = new Point(6, 47);
             groupbox_advanced_options.Name = "groupbox_advanced_options";
-            groupbox_advanced_options.Size = new Size(212, 87);
+            groupbox_advanced_options.Size = new Size(212, 209);
             groupbox_advanced_options.TabIndex = 3;
             groupbox_advanced_options.TabStop = false;
             groupbox_advanced_options.Text = "Advanced Options";
@@ -478,14 +501,14 @@
             label_average_bitrate.TabIndex = 1;
             label_average_bitrate.Text = "average bps:";
             // 
-            // textBox1
+            // textbox_average_bps
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(85, 22);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(121, 23);
-            textBox1.TabIndex = 0;
-            textBox1.KeyPress += textbox_advanced_bitrate;
+            textbox_average_bps.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textbox_average_bps.Location = new Point(85, 22);
+            textbox_average_bps.Name = "textbox_average_bps";
+            textbox_average_bps.Size = new Size(121, 23);
+            textbox_average_bps.TabIndex = 0;
+            textbox_average_bps.KeyPress += textbox_advanced_bitrate;
             // 
             // radiobutton_mp4
             // 
@@ -588,7 +611,7 @@
         private GroupBox groupbox_output;
         private Button button_output_mp3_wav;
         private TextBox textbox_output_directory_mp3;
-        private ComboBox combobox_quality;
+        private ComboBox combobox_wav_quality;
         private Button button_mp3_start;
         private ProgressBar progress_mp3;
         private Label label_number_files;
@@ -606,17 +629,19 @@
         private ComboBox combobox_audio_quality;
         private GroupBox groupbox_advanced_options;
         private CheckBox checkbox_automatic_quality;
-        private TextBox textBox1;
+        private TextBox textbox_average_bps;
         private Label label_average_bitrate;
         private GroupBox groupbox_timestamp;
         private MaskedTextBox masked_time_start;
         private Label label_time_end;
-        private Label lable_time_start;
+        private Label label_time_start;
         private MaskedTextBox masked_time_end;
         private Label label_timestamp_example;
         private GroupBox groupbox_output_shadowplay;
         private TextBox textbox_output_directory_shadowplay;
         private Button button_output_directory_shadowplay;
         private ProgressBar progress_shadowplay;
+        private TextBox textbox_filename;
+        private Label label_filename;
     }
 }
