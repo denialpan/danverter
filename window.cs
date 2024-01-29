@@ -8,13 +8,22 @@ namespace danverter {
         public Danverter()
         {
             InitializeComponent();
-            this.MinimumSize = new System.Drawing.Size(600, 600);
-            this.Size = new System.Drawing.Size(600, 600);
+            this.MinimumSize = new Size(600, 600);
+            this.Size = new Size(600, 600);
 
-            string[] quality_options = new string[] { "44100 Hz", "48000 Hz" };
+            string[] mp3_to_wav_quality = new string[] { "44100 Hz", "48000 Hz" };
+            string[] audio_quality = new string[] { "320 kbps (Insane)", "256 kbps (Extreme)", "192 kbps (Standard) (default)", "128 kbps (Medium)" };
 
-            combobox_quality.Items.AddRange(quality_options);
+
+            combobox_quality.Items.AddRange(mp3_to_wav_quality);
             combobox_quality.SelectedIndex = 1;
+
+            combobox_audio_quality.Items.AddRange(audio_quality);
+            combobox_audio_quality.SelectedIndex = 2;
+
+            checkbox_automatic_quality.Checked = true;
+
+            radiobutton_mp4.Checked = true;
         }
 
         // some organization on this, but this might be really messy anyways
@@ -39,7 +48,7 @@ namespace danverter {
 
         private void mp3_button_output_directory(object sender, EventArgs e)
         {
-            MP3FileExplorer.Instance.set_output_directory(textbox_output_directory);
+            MP3FileExplorer.Instance.set_output_directory(textbox_output_directory_mp3);
         }
 
         private void mp3_button_start(object sender, EventArgs e)
@@ -72,5 +81,34 @@ namespace danverter {
             groupbox_mp4_options.Enabled = true;
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkbox_automatic_quality_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkbox_automatic_quality.Checked)
+            {
+                groupbox_advanced_options.Enabled = false;
+            }
+            else
+            {
+                groupbox_advanced_options.Enabled = true;
+            }
+        }
+
+        private void textbox_advanced_bitrate(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void button_output_directory_shadowplay_click(object sender, EventArgs e)
+        {
+            ShadowplayFileExplorer.Instance.set_output_directory(textbox_output_directory_shadowplay);
+        }
     }
 }
