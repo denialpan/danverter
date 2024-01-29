@@ -113,8 +113,8 @@ public class MP3FileExplorer {
 
         Debug.WriteLine(this.output_directory);
         
-        if (this.output_directory == "") {
-            MessageBox.Show("No output directory specified");
+        if (this.output_directory == "" || this.selected_files.Count == 0) {
+            MessageBox.Show("No input files or no output directory specified");
         } else {
 
             int amount_of_commands = this.selected_files.Count;
@@ -129,8 +129,8 @@ public class MP3FileExplorer {
                 {
 
                     FileName = "ffmpeg.exe",
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
+                    RedirectStandardOutput = false,
+                    RedirectStandardError = false,
                     CreateNoWindow = true,
                     UseShellExecute = false,
 
@@ -156,16 +156,8 @@ public class MP3FileExplorer {
                     // Start the process
                     mp3_process.Start();
 
-                    // Capture the output
-                    string output = mp3_process.StandardOutput.ReadToEnd();
-                    string error = mp3_process.StandardError.ReadToEnd();
-
                     // Wait for the process to exit
                     mp3_process.WaitForExit();
-
-                    // Print the output (you might want to handle it as needed)
-                    Debug.WriteLine($"Output: {output}");
-                    Debug.WriteLine($"Error: {error}");
 
                     progress.Value++;
 
