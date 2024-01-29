@@ -20,6 +20,7 @@
 - Estimate calculated file sizes before mp4 conversion
 - Create more reliable and modular progress bar
 - Option to resize
+- Option to delete original after processed
 - Drag and drop files
 - Timeframe validation
 - Better console output for users
