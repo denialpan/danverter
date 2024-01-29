@@ -19,6 +19,7 @@
 ### Future things to add/implement
 - Estimate calculated file sizes before mp4 conversion
 - Create more reliable and modular progress bar
+- Drag and drop files
 - **Clean up code**
 
 ### ![Download](https://github.com/denialpan/danverter/releases/)
